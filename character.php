@@ -14,6 +14,18 @@
 <![endif]-->
 </head>
 <body>
+    <?php
+         $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
+
+        /* check connection */
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            exit();
+        }
+
+        $playername = "tacoTamales";
+        $charname = "MiniPenguin";
+    ?>
     <nav>
         <div class="navwrapper">
             <div><a href="Dashboard.html">Dashboard</a></div>
@@ -21,29 +33,20 @@
         </div>
     </nav>
     <div id="wrapper">
-        <h1>Character Information</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit purus urna, vel tempus mi euismod id. Phasellus et libero a justo ullamcorper fermentum. Maecenas a facilisis risus, et tincidunt augue. Aliquam quis sagittis turpis. Duis eget purus vel odio scelerisque auctor. Aliquam erat volutpat. Phasellus id dolor eget nibh condimentum scelerisque et nec lectus. Aliquam ac ex lobortis, euismod diam eu, tempor lacus.
-
-Ut facilisis facilisis placerat. Aenean dolor dui, tincidunt eu bibendum vitae, pharetra nec nisl. Integer porta varius ipsum, non ultrices ex vestibulum at. Sed a lectus mi. Nam hendrerit justo felis, nec volutpat ipsum tristique a. Nullam at feugiat dui. Cras eu ex sed orci condimentum feugiat. Fusce eleifend ullamcorper dui, id pharetra neque vulputate ut. Curabitur mi sapien, consectetur quis posuere non, facilisis ut purus. Nunc accumsan neque a ultricies cursus. Quisque a interdum lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean ultricies vel nulla sit amet mollis. Pellentesque eleifend ligula turpis. Integer dui leo, eleifend vel dignissim at, congue finibus purus.
-
-Vestibulum eget risus ultrices, ultrices purus iaculis, rutrum dolor. Quisque sit amet diam sit amet enim semper dapibus. Morbi semper velit interdum augue varius rutrum. Sed at tellus venenatis, dapibus eros ac, interdum ligula. Donec accumsan nisi accumsan euismod fringilla. Quisque malesuada blandit nisl a luctus. Curabitur luctus aliquam erat, sit amet euismod lacus mollis at.
-
-Pellentesque non mattis nibh. Phasellus consequat, sem eget facilisis mollis, ante lacus ultricies lorem, ut maximus nibh diam a odio. Maecenas venenatis auctor velit tempus lobortis. Pellentesque placerat nisi sit amet mi posuere aliquam. Cras sed sagittis lorem, non condimentum ante. Vestibulum tempor imperdiet mauris ac lobortis. Suspendisse quis dapibus orci. Cras eget sapien vel risus condimentum bibendum ut quis orci. Donec eu molestie tellus. Pellentesque sagittis fermentum sapien, nec lacinia arcu accumsan sed. Proin lorem sapien, consectetur vitae neque vel, porttitor rutrum erat.
-
-Praesent ullamcorper est ut enim luctus porta. Donec a lacinia dolor. Nullam vestibulum commodo nisi eu posuere. Integer bibendum porta tellus, id venenatis sem semper id. Quisque cursus sem euismod erat congue facilisis. Quisque commodo dapibus nunc, non viverra libero rhoncus volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut ut laoreet quam, vel faucibus tortor. Donec eget accumsan purus, ac laoreet dolor.</p>
+            <?php
+                $query = "SELECT description FROM `CHARACTER` WHERE username = '$playername' and name = '$charname'";
+    
+                if($result = $mysqli->query($query)){
+                    while($row = $result->fetch_assoc()){
+                        echo "<h1>".$playername." | ".$charname."</h1><p> ".$row['description']."</p>";
+                    }
+                }else{
+                    echo "Error";
+                }
+            ?>
         <div class="section">
             <h1>Equipped</h1>
             <?php
-                $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
-
-                /* check connection */
-                if ($mysqli->connect_errno) {
-                    printf("Connect failed: %s\n", $mysqli->connect_error);
-                    exit();
-                }
-            
-                $playername = "tacoTamales";
-                $charname = "MiniPenguin";
                 $query = "SELECT * FROM `HAS` WHERE player_name = '$playername' and character_name = '$charname' and equipped = 1";
     
                 if($result = $mysqli->query($query)){
