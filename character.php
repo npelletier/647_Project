@@ -31,6 +31,45 @@ Vestibulum eget risus ultrices, ultrices purus iaculis, rutrum dolor. Quisque si
 Pellentesque non mattis nibh. Phasellus consequat, sem eget facilisis mollis, ante lacus ultricies lorem, ut maximus nibh diam a odio. Maecenas venenatis auctor velit tempus lobortis. Pellentesque placerat nisi sit amet mi posuere aliquam. Cras sed sagittis lorem, non condimentum ante. Vestibulum tempor imperdiet mauris ac lobortis. Suspendisse quis dapibus orci. Cras eget sapien vel risus condimentum bibendum ut quis orci. Donec eu molestie tellus. Pellentesque sagittis fermentum sapien, nec lacinia arcu accumsan sed. Proin lorem sapien, consectetur vitae neque vel, porttitor rutrum erat.
 
 Praesent ullamcorper est ut enim luctus porta. Donec a lacinia dolor. Nullam vestibulum commodo nisi eu posuere. Integer bibendum porta tellus, id venenatis sem semper id. Quisque cursus sem euismod erat congue facilisis. Quisque commodo dapibus nunc, non viverra libero rhoncus volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut ut laoreet quam, vel faucibus tortor. Donec eget accumsan purus, ac laoreet dolor.</p>
+        <div class="section">
+            <h1>Equipped</h1>
+            <?php
+                $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
+
+                /* check connection */
+                if ($mysqli->connect_errno) {
+                    printf("Connect failed: %s\n", $mysqli->connect_error);
+                    exit();
+                }
+            
+                $playername = "tacoTamales";
+                $charname = "MiniPenguin";
+                $query = "SELECT * FROM `HAS` WHERE player_name = '$playername' and character_name = '$charname' and equipped = 1";
+    
+                if($result = $mysqli->query($query)){
+                    while($row = $result->fetch_assoc()){
+                        echo "<div class ='container'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> ".$row['amount']."</p></div>";
+                    }
+                }else{
+                    echo "Error";
+                }
+            ?>
+        </div>
+        <div class="section">
+            <h1>Inventory</h1>
+            <?php
+               $query = "SELECT * FROM `HAS` WHERE player_name = '$playername' and character_name = '$charname' and equipped = 0";
+                if($result = $mysqli->query($query)){
+                    while($row = $result->fetch_assoc()){
+                        echo "<div class ='container'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> ".$row['amount']."</p></div>";
+                    }
+                }else{
+                    echo "Error";
+                }
+            $mysqli->close();
+            ?>
+            
+        </div>
     </div>
 </body>
 </html>
