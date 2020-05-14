@@ -150,3 +150,7 @@ nav > .navwrapper > div:hover{
     font-size: 25px;
     color: #86c232;
 }
+
+.botMargin{
+    margin-bottom: 15px;
+}
