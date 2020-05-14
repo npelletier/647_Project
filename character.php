@@ -29,7 +29,9 @@
     ?>
     <nav>
         <div class="navwrapper">
-            <div><a href="Dashboard.html">Dashboard</a></div>
+            <div><a href="Dashboard.php">Dashboard</a></div>
+            <div><a href="shop.php">Buy Equipment</a></div>
+            <div><a href="#">Edit Character</a></div>
             <div class="logout"><a href="index.html">logout</a></div>
         </div>
     </nav>
