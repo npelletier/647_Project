@@ -14,6 +14,7 @@
 <![endif]-->
 </head>
 <body>
+
     <nav>
         <div class="navwrapper">
             <div><a href="Dashboard.html">Dashboard</a></div>
@@ -33,7 +34,7 @@
             $results = $mysqli->query($sql);
             while($row = $results->fetch_assoc())
             {
-                echo "Username: $row[name]<br>";
+                echo "<h1> Username: $row[name]<br> </h1>";
             }
 
             /* close connection */
