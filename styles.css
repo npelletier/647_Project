@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -19,11 +20,11 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -47,13 +48,45 @@ table {
 	border-spacing: 0;
 }
 
+
 /* Default Layout */
+
+/*
+dark green
+color: #61892f;
+
+green
+color: #86c232;
+
+dark
+color: #222629;
+
+gray
+color: #474b4f;
+
+light gray
+color: #6b6e70;
+
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
+
+*/
 body{
-    background-color: #222222;    
+    background-color: #222629;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
 }
 
+h1,h2,h3,h4,h5{
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+}
+
+
 nav{
-    background-color: #333333;
+    background-color: #474b4f;
     padding: 0;
 }
 
@@ -63,7 +96,7 @@ nav > .navwrapper > div{
 }
 
 nav > .navwrapper > div:hover{
-    background-color: #444444;
+    background-color: #86c232;
 }
 
 .navwrapper{
@@ -72,7 +105,7 @@ nav > .navwrapper > div:hover{
 }
 
 #wrapper{
-    background-color: #dddddd;
+    background-color: #222629;
     margin: 0 auto;
     padding: 20px;
     max-width: 1000px;
@@ -85,4 +118,39 @@ nav > .navwrapper > div:hover{
 
 .logout{
     float: right;
+}
+
+.container{
+    padding: 10px;
+    margin: 5px;
+    background-color: #555555;
+    color: #ffffff;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.section{
+    margin: 10px 0;
+    padding: 10px 0;
+    border-top: 1px dashed #6b6e70;
+}
+
+.section > h1{
+    margin-bottom: 10px;
+}
+
+/* classes */
+
+.centered_text{
+    text-align: center;
+}
+
+/* specific */
+.amount{
+    font-size: 25px;
+    color: #86c232;
+}
+
+.botMargin{
+    margin-bottom: 15px;
 }
