@@ -11,7 +11,7 @@ function addtoRemoveList(ele){
         }
     }
     if(!exist){
-        form.insertAdjacentHTML('beforeend', "<input type='text' id ='"+nameid+"' value = '"+name+"' readonly></input><input type='number' value='1' name ='"+nameid+"Quantity' min='1' max = '"+maxValue+"'><br>");
+        form.insertAdjacentHTML('beforeend', "<input type='text' name='remove[]' id ='"+nameid+"' value = '"+name+"' readonly required></input><input type='number' name ='removeValue[]' value='1' name ='"+nameid+"Quantity' min='1' max='"+maxValue+"' onkeyup=enforceMinMax(this) required><br>");
     }
 }
 
@@ -27,6 +27,25 @@ function addtoAddList(ele){
         }
     }
     if(!exist){
-        form.insertAdjacentHTML('beforeend', "<input type='text' id ='"+nameid+"' value = '"+name+"' readonly></input><input type='number' value='1' name ='"+nameid+"Quantity' min='1'><br>");
+        form.insertAdjacentHTML('beforeend', "<input type='text' name='add[]' id ='"+nameid+"' value = '"+name+"' readonly required></input><input name='addValue[]' type='number' value='1' name ='"+nameid+"Quantity' min='1' onkeyup=enforceMin(this) required><br>");
     }
+}
+
+function enforceMinMax(el){
+  if(el.value != ""){
+    if(parseInt(el.value) < parseInt(el.min)){
+      el.value = el.min;
+    }
+    if(parseInt(el.value) > parseInt(el.max)){
+      el.value = el.max;
+    }
+  }
+}
+
+function enforceMin(el){
+  if(el.value != ""){
+    if(parseInt(el.value) < parseInt(el.min)){
+      el.value = el.min;
+    }
+  }
 }

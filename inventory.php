@@ -40,11 +40,13 @@
     <div id="wrapper">
         <div class="section">
             <h1>Current Invetory</h1>
+            <p>Click items to remove from inventory</p>
+            <span class="vBreak"></span>
             <?php
                $query = "SELECT * FROM `HAS` WHERE character_name ='$charname' and player_name = '$playername'";
                 if($result = $mysqli->query($query)){
                     while($row = $result->fetch_assoc()){
-                        echo "<div class ='container clickable' onclick='addtoRemoveList(this)'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> ".$row['amount']."</p></div>";
+                        echo "<div class ='container clickable' onclick='addtoRemoveList(this)'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'>".$row['amount']."</p></div>";
                     }
                 }else{
                     echo "Error";
@@ -53,6 +55,8 @@
         </div>
         <div class="section">
             <h1>Avilable Items</h1>
+            <p>Click items to add to inventory</p>
+            <span class="vBreak"></span>
             <?php
                $query = "SELECT * FROM `ITEM`";
                 if($result = $mysqli->query($query)){
@@ -67,7 +71,7 @@
         </div>
         <div class="section checkout">
             <h1>Changes</h1>
-            <form action="updateInventory.php">
+            <form action="updateInventory.php" method="post">
                 <div id="add">
                 <h2>Add Items</h2>
                 </div>

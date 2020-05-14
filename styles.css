@@ -149,6 +149,11 @@ nav > .navwrapper > div:hover{
     cursor: pointer;
 }
 
+.vBreak{
+    display: block;
+    margin: 10px;
+}
+
 /* specific */
 .amount{
     font-size: 25px;
@@ -182,4 +187,5 @@ input[type=submit]{
 input[type=submit]:hover{
     background-color: #86c232; 
 }
+
 
