@@ -40,7 +40,7 @@
 
         $username = $_POST["uname"];
         $password = $_POST["pwd"];
-        if($mysqli->query("SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'") > 0)
+        if(mysqli_num_rows($mysqli->query("SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'")) === 1)
         {
           session_start();
           $_SESSION['playername'] = $username;
