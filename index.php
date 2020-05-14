@@ -27,24 +27,27 @@
     <br>Password:<br>
     <input type="password" name="pwd" id="pwd"><br>
     <button type="submit" name="Sign In"> Sign In </button>
-    <select name="option">
       <?php
-      $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
-
-      /* check connection */
-      if ($mysqli->connect_errno) {
-          printf("Connect failed: %s\n", $authorize->connect_error);
-          exit();
-      }
-
-      $query1 = "SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'";
-      if($return = $mysqli->query($query1))
+      if (isset(post))
       {
-        session_start();
-        $_SESSION['username'] = $username;
+        $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
+
+        /* check connection */
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            exit();
+        }
+
+        if($mysqli->query("SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'"))
+        {
+          session_start();
+          $_SESSION['playername'] = $username;
+          $mysqli->close();
+          header("Location: Dashboard.php");
+          exit();
+        }
       }
       ?>
-      </select>
   </form>
 </body>
 </html>
