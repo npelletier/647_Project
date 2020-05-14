@@ -28,7 +28,7 @@
     <input type="password" name="pwd" id="pwd"><br>
     <button type="submit" name="Sign In"> Sign In </button>
       <?php
-      if (isset(post))
+      if (isset(login))
       {
         $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
 
