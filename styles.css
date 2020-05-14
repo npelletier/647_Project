@@ -145,6 +145,10 @@ nav > .navwrapper > div:hover{
     text-align: center;
 }
 
+.clickable:hover{
+    cursor: pointer;
+}
+
 /* specific */
 .amount{
     font-size: 25px;
@@ -154,3 +158,27 @@ nav > .navwrapper > div:hover{
 .botMargin{
     margin-bottom: 15px;
 }
+
+/* Forms */
+input{
+    background-color: #222629;
+    padding: 10px;
+    margin: 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    border: #6b6e70 solid 1px;
+}
+
+input[type=number]{
+    width: 20px;
+    text-align: center;
+}
+
+input[type=submit]{
+    background-color: #61892f;
+}
+
+input[type=submit]:hover{
+    background-color: #86c232; 
+}
+

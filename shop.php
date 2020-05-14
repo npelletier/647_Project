@@ -44,7 +44,7 @@
                $query = "SELECT * FROM `ITEM`";
                 if($result = $mysqli->query($query)){
                     while($row = $result->fetch_assoc()){
-                        echo "<div class ='container'><h3 class='centered_text'>".$row['name']."</h3><p class = 'centered_text amount'> ".$row['cost']."</p></div>";
+                        echo "<div class ='container clickable' onclick='addtoList(this)'><h3 class='centered_text'>".$row['name']."</h3><p class = 'centered_text amount'> ".$row['cost']."</p></div>";
                     }
                 }else{
                     echo "Error";
@@ -54,8 +54,8 @@
         </div>
         <div class="section checkout">
             <h1>Checkout</h1>
-            <form action="addinventory.php">
-            
+            <form id="checkout" action="addinventory.php">
+            <input type="submit" value="Submit">
             </form>
         </div>
     </div>
@@ -63,5 +63,6 @@
     session_start();
     $mysqli->close();
     ?>
+    <script src="script.js"></script>
 </body>
 </html>
