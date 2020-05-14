@@ -23,12 +23,12 @@
   <div class="background-container" class="center-fit"></div>
   <form name="login" style="text-align:center" action="index.php" method="post">
     <br><br>Username:<br>
-    <input type="text" name="uname" id="uname"><br>
+    <input type="text" name="uname" id="uname" required><br>
     <br>Password:<br>
-    <input type="password" name="pwd" id="pwd"><br>
+    <input type="password" name="pwd" id="pwd" required><br>
     <button type="submit" name="Sign In"> Sign In </button>
       <?php
-      if (isset(login))
+      if (isset($_POST["uname"]))
       {
         $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
 
@@ -38,7 +38,9 @@
             exit();
         }
 
-        if($mysqli->query("SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'"))
+        $username = $_POST["uname"];
+        $password = $_POST["pwd"];
+        if($mysqli->query("SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'") > 0)
         {
           session_start();
           $_SESSION['playername'] = $username;
