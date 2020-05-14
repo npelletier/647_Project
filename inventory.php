@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta charset="utf-8">
-<title>Character</title>
+<title>Edit Inventory</title>
 <meta name="description" content="">
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,19 +32,32 @@
     <nav>
         <div class="navwrapper">
             <div><a href="Dashboard.php">Dashboard</a></div>
-            <div><a href="shop.php">Add Equipment</a></div>
+            <div><a href="character.php">View Character</a></div>
             <div><a href="#">Edit Character</a></div>
             <div class="logout"><a href="index.html">logout</a></div>
         </div>
     </nav>
     <div id="wrapper">
         <div class="section">
+            <h1>Current Invetory</h1>
+            <?php
+               $query = "SELECT * FROM `HAS` WHERE character_name ='$charname' and player_name = '$playername'";
+                if($result = $mysqli->query($query)){
+                    while($row = $result->fetch_assoc()){
+                        echo "<div class ='container clickable' onclick='addtoRemoveList(this)'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> ".$row['amount']."</p></div>";
+                    }
+                }else{
+                    echo "Error";
+                }
+            ?>
+        </div>
+        <div class="section">
             <h1>Avilable Items</h1>
             <?php
                $query = "SELECT * FROM `ITEM`";
                 if($result = $mysqli->query($query)){
                     while($row = $result->fetch_assoc()){
-                        echo "<div class ='container clickable' onclick='addtoList(this)'><h3 class='centered_text'>".$row['name']."</h3><p class = 'centered_text amount'> ".$row['cost']."</p></div>";
+                        echo "<div class ='container clickable' onclick='addtoAddList(this)'><h3 class='centered_text'>".$row['name']."</h3><p class = 'centered_text amount'> ".$row['cost']."</p></div>";
                     }
                 }else{
                     echo "Error";
@@ -53,8 +66,14 @@
             
         </div>
         <div class="section checkout">
-            <h1>Checkout</h1>
-            <form id="checkout" action="addinventory.php">
+            <h1>Changes</h1>
+            <form action="updateInventory.php">
+                <div id="add">
+                <h2>Add Items</h2>
+                </div>
+                <div id="remove">
+                <h2>Remove Items</h2>
+                </div>
             <input type="submit" value="Submit">
             </form>
         </div>
