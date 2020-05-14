@@ -26,6 +26,37 @@
 
         $playername = "tacoTamales";
         $charname = "MiniPenguin";
+
+        function equip() {
+            if(isset($_GET['itemName'])){
+                global $playername;
+                global $charname;
+                global $mysqli;
+                $update = "UPDATE `HAS` SET equipped = 1 WHERE player_name = '$playername' and character_name = '$charname' and item_name ='".$_GET['itemName']."'";
+                if(!($update_status = $mysqli->query($update))){
+                    echo "Error in updating detabase<br>";
+                }
+            }
+        }
+
+        function unequip() {
+            if(isset($_GET['itemName'])){
+                global $playername;
+                global $charname;
+                global $mysqli;
+                $update = "UPDATE `HAS` SET equipped = 0 WHERE player_name = '$playername' and character_name = '$charname' and item_name ='".$_GET['itemName']."'";
+                if(!($update_status = $mysqli->query($update))){
+                    echo "Error in updating detabase<br>";
+                }
+            }
+        }
+
+        if (isset($_GET['equip'])) {
+            equip();
+        }
+        if (isset($_GET['unequip'])) {
+            unequip();
+        }
     ?>
     <nav>
         <div class="navwrapper">
@@ -38,10 +69,10 @@
     <div id="wrapper">
             <?php
                 $query = "SELECT * FROM `CHARACTER` WHERE username = '$playername' and name = '$charname'";
-    
+
                 if($result = $mysqli->query($query)){
                     while($row = $result->fetch_assoc()){
-                        echo 
+                        echo
                             "<p>Character Name</p><h1 class ='botMargin'>".$row['name']."</h1>".
                             "<p>Class</p><h1 class ='botMargin'>".$row['class']."</h1>".
                             "<p>Background</p><h1 class ='botMargin'>".$row['background']."</h1>".
@@ -61,10 +92,10 @@
             <h1>Equipped</h1>
             <?php
                 $query = "SELECT * FROM `HAS` WHERE player_name = '$playername' and character_name = '$charname' and equipped = 1";
-    
+
                 if($result = $mysqli->query($query)){
                     while($row = $result->fetch_assoc()){
-                        echo "<div class ='container'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> ".$row['amount']."</p></div>";
+                        echo "<div class ='container'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> ".$row['amount']."</p><a class='containerButton' href='character.php?unequip=true&itemName=".$row['item_name']."'>unequip</a></div>";
                     }
                 }else{
                     echo "Error";
@@ -77,13 +108,13 @@
                $query = "SELECT * FROM `HAS` WHERE player_name = '$playername' and character_name = '$charname' and equipped = 0";
                 if($result = $mysqli->query($query)){
                     while($row = $result->fetch_assoc()){
-                        echo "<div class ='container'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> ".$row['amount']."</p></div>";
+                        echo "<div class ='container'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> ".$row['amount']."</p><a class='containerButton' href='character.php?equip=true&itemName=".$row['item_name']."'>equip</a></div>";
                     }
                 }else{
                     echo "Error";
                 }
             ?>
-            
+
         </div>
     </div>
     <?php

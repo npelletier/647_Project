@@ -23,7 +23,8 @@
             printf("Connect failed: %s\n", $mysqli->connect_error);
             exit();
         }
-    
+
+
             session_start();
 
             $playername = $_SESSION['playername'];
@@ -67,7 +68,7 @@
                     echo "Error";
                 }
             ?>
-            
+
         </div>
         <div class="section checkout">
             <h1>Changes</h1>
