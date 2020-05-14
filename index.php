@@ -48,6 +48,10 @@
           header("Location: Dashboard.php");
           exit();
         }
+        else
+        {
+          echo "Invalid login attempt, please try again.<br>";
+        }
       }
       ?>
   </form>
