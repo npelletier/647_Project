@@ -20,24 +20,29 @@
   <div class="header-container" style="text-align:center">
     <h1>Welcome to the Dungeons and the Dragons!</h1>
   </div>
-  <div class="background-container" class="center-fit"> <!--src="https://clipartart.com/images/dd-logo-clipart.png"> --></div>
-  <form name="login" style="text-align:center">
+  <div class="background-container" class="center-fit"></div>
+  <form name="login" style="text-align:center" action="index.php" method="post">
     <br><br>Username:<br>
     <input type="text" name="uname" id="uname"><br>
     <br>Password:<br>
     <input type="password" name="pwd" id="pwd"><br>
-    <button type="button" name="Sign In" onclick="buttonFunc()"> Sign In </button>
+    <button type="submit" name="Sign In"> Sign In </button>
     <select name="option">
       <?php
-      $authorize = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
+      $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
 
       /* check connection */
-      if ($authorize->connect_errno) {
+      if ($mysqli->connect_errno) {
           printf("Connect failed: %s\n", $authorize->connect_error);
           exit();
       }
-      $sql = $authorize->query("SELECT ")
-      session_start();
+
+      $query1 = "SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'";
+      if($return = $mysqli->query($query1))
+      {
+        session_start();
+        $_SESSION['username'] = $username;
+      }
       ?>
       </select>
   </form>

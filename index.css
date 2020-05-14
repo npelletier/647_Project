@@ -101,8 +101,13 @@ nav > .navwrapper > div:hover{
 
 /* Landing Page */
 .background-container {
-  background-image: "https://clipartart.com/images/dd-logo-clipart.png";
-  height: 100%;
+  background-image: url(https://clipartart.com/images/dd-logo-clipart.png);
+  position: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+  height: 100vh;
   width: 100%;
 
 }
