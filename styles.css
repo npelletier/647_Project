@@ -50,13 +50,43 @@ table {
 
 
 /* Default Layout */
+
+/*
+dark green
+color: #61892f;
+
+green
+color: #86c232;
+
+dark
+color: #222629;
+
+gray
+color: #474b4f;
+
+light gray
+color: #6b6e70;
+
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
+
+*/
 body{
-    background-color: #222222;
+    background-color: #222629;
     color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
 }
 
+h1,h2,h3,h4,h5{
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+}
+
+
 nav{
-    background-color: #111111;
+    background-color: #474b4f;
     padding: 0;
 }
 
@@ -66,7 +96,7 @@ nav > .navwrapper > div{
 }
 
 nav > .navwrapper > div:hover{
-    background-color: #0d6ce8;
+    background-color: #86c232;
 }
 
 .navwrapper{
@@ -75,7 +105,7 @@ nav > .navwrapper > div:hover{
 }
 
 #wrapper{
-    background-color: #2f2f2f;
+    background-color: #222629;
     margin: 0 auto;
     padding: 20px;
     max-width: 1000px;
@@ -102,9 +132,12 @@ nav > .navwrapper > div:hover{
 .section{
     margin: 10px 0;
     padding: 10px 0;
-    border-top: 1px dashed #000000;
+    border-top: 1px dashed #6b6e70;
 }
 
+.section > h1{
+    margin-bottom: 10px;
+}
 
 /* classes */
 
@@ -115,5 +148,5 @@ nav > .navwrapper > div:hover{
 /* specific */
 .amount{
     font-size: 25px;
-    color: #0d6ce8;
+    color: #86c232;
 }
