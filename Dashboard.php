@@ -14,6 +14,16 @@
 <![endif]-->
 </head>
 <body>
+  <?php
+      $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
+      if ($mysqli->connect_errno) {
+          printf("Connect failed: %s\n", $mysqli->connect_error);
+          exit();
+      }
+
+      session_start();
+      $playername = $_SESSION['playername'];
+  ?>
 
     <nav>
         <div class="navwrapper">
@@ -24,17 +34,11 @@
     <div id="wrapper">
         <h1>All Characters</h1>
         <?php
-            $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
-            if ($mysqli->connect_errno) {
-                printf("Connect failed: %s\n", $mysqli->connect_error);
-                exit();
-            }
-
-            $sql = "SELECT name FROM `CHARACTER`";
+            $sql = "SELECT name FROM `CHARACTER` WHERE username = '$playername'";
             $results = $mysqli->query($sql);
             while($row = $results->fetch_assoc())
             {
-                echo "<h1> Username: $row[name]<br> </h1>";
+                echo "<div><a href='character.php'> $row[name] </a></div><br>";
             }
 
             /* close connection */
