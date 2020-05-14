@@ -24,8 +24,9 @@
             exit();
         }
 
-        $playername = "tacoTamales";
-        $charname = "MiniPenguin";
+        session_start();
+        $playername = $_SESSION['playername'];
+        $charname = $_SESSION['charname'];
 
         function equip() {
             if(isset($_GET['itemName'])){
@@ -118,9 +119,6 @@
         </div>
     </div>
     <?php
-    session_start();
-    $_SESSION['playername'] = $playername;
-    $_SESSION['charname'] = $charname;
     $mysqli->close();
     ?>
 </body>
