@@ -41,7 +41,7 @@ if(count($removed_names) > 0){
                 if($update_status = $mysqli->query($update)){
                     echo "-".$removed_values[$i]." ".$removed_names[$i]." removed from database<br>";
                 }else{
-                    echo "Error in updating detabase<br>";
+                    echo "Error in updating database<br>";
                 }
             }else{
                 /* Update Item value in table */

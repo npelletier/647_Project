@@ -171,6 +171,11 @@ nav > .navwrapper > div:hover{
 	text-align: center;
 }
 
+.remove{
+	display: inline-block;
+	margin-left: 10px;
+}
+
 /* Forms */
 input{
     font-size: 15px;
