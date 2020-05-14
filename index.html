@@ -1,1 +1,41 @@
-Test
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>D&D 5e Character Manager</title>
+<meta name="description" content="">
+<meta name="author" content="Travis Hull">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+  <div class="header-container" style="text-align:center">
+    <h1>Welcome to the Dungeons and the Dragons!</h1>
+  </div>
+  <div class="background-container" style="position:fixed"  z-index="-1">
+    <img src="https://clipartart.com/images/dd-logo-clipart.png">
+  </div>
+  <form name="login" style="text-align:center">
+    Username:<br>
+    <input type="text" name="uname" id="uname"><br>
+    Password:<br>
+    <input type="password" name="pwd" id="pwd"><br>
+    <button type="button" name="Sign In" onclick="buttonFunc()"> Sign In </button>
+  </form>
+
+  <script>
+  $mysqli = new mysqli("mysql.eecs.ku.edu", "j666m000", "gei4uiYi", "j666m000");
+
+/* check connection */
+if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+}
+</script>
+</body>
+</html>
