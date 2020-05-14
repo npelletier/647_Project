@@ -82,10 +82,15 @@
                 }else{
                     echo "Error";
                 }
-            $mysqli->close();
             ?>
             
         </div>
     </div>
+    <?php
+    session_start();
+    $_SESSION['playername'] = $playername;
+    $_SESSION['charname'] = $charname;
+    $mysqli->close();
+    ?>
 </body>
 </html>
