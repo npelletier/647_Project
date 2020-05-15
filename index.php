@@ -23,7 +23,7 @@
     <input type="text" name="uname" id="uname" required><br>
     <br>Password:<br>
     <input type="password" name="pwd" id="pwd" required><br>
-    <button type="submit" name="Sign In"> Sign In </button>
+    <input type="submit" value="Sign In"> Sign In
       <?php
       if (isset($_POST["uname"]))
       {
@@ -48,7 +48,7 @@
         else
         {
           echo "<br>Invalid login attempt, please try again.<br>";
-          echo "<br><button type='submit' action='CreateUser.php' name='New User'> Sign Up </button><br>";
+          echo "<br><input type='submit' action='CreateUser.php' value='New User'> Sign Up <br>";
         }
     }
       ?>
