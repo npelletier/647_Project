@@ -24,7 +24,6 @@
     Password:<br>
     <input type="password" name="pwd" id="pwd" required><br>
     <input type="submit" value="Sign In">
-    <br><a class='button' href="CreateUser.php"> New User </a>
       <?php
       if (isset($_POST["uname"]))
       {
@@ -53,5 +52,6 @@
     }
       ?>
   </form>
+  <br><a class='button' href="CreateUser.php"> New User </a>
 </body>
 </html>
