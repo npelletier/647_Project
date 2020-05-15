@@ -163,6 +163,11 @@ nav > .navwrapper > div:hover{
     color: #86c232;
 }
 
+.description{
+    font-size: 16px;
+    color: #61892f;
+}
+
 .botMargin{
     margin-bottom: 15px;
 }
