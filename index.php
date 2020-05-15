@@ -48,9 +48,9 @@
         else
         {
           echo "<br>Invalid login attempt, please try again.<br>";
-          echo "<br><button type='submit' action='CreateUser.php' name='New User'> Sign Up </button><br>"
+          echo "<br><button type='submit' action='CreateUser.php' name='New User'> Sign Up </button><br>";
         }
-      }
+    }
       ?>
   </form>
 </body>
