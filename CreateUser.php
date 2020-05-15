@@ -71,6 +71,5 @@
     }
       ?>
   </form>
-  <a class='button' href="CreateUser.php"> New User </a>
 </body>
 </html>
