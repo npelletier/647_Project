@@ -50,6 +50,14 @@ function enforceMin(el){
   }
 }
 
+function showEdit(){
+    var x = document.getElementsByClassName("onedit");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "inline-block";
+    }
+}
+
 
 function createCookie(value){
 	console.log("Testing");

@@ -68,8 +68,6 @@ if(count($removed_names) > 0){
 
 
     }
-}else{
-    echo "Nothing removed<br>";
 }
 
 
@@ -102,8 +100,6 @@ if(count($add_names) > 0){
             echo "Error<br>";
         }
     }
-}else{
-    echo "Nothing added <br>";
 }
 
 echo "<br><a class='button' href='inventory.php'>Return</a>";
