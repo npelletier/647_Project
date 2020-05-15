@@ -21,9 +21,10 @@
   <form name="login" style="text-align:center" action="index.php" method="post">
     <br><br>Username:<br>
     <input type="text" name="uname" id="uname" required><br>
-    <br>Password:<br>
+    Password:<br>
     <input type="password" name="pwd" id="pwd" required><br>
-    <input type="submit" value="Sign In"> Sign In
+    <input type="submit" value="Sign In">
+    <br><input type='submit' action='CreateUser.php' value='New User'>
       <?php
       if (isset($_POST["uname"]))
       {
@@ -48,7 +49,6 @@
         else
         {
           echo "<br>Invalid login attempt, please try again.<br>";
-          echo "<br><input type='submit' action='CreateUser.php' value='New User'> Sign Up <br>";
         }
     }
       ?>
