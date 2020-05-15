@@ -17,7 +17,7 @@
   <div class="header-container" style="text-align:center">
   </div>
   <div class="background-container" class="center-fit"></div>
-  <form name="login" style="text-align:center" action="index.php" method="post">
+  <form name="login" style="text-align:center" action="Dashboard.php" method="post">
     <br><br>New Username:<br>
     <input type="text" name="uname" id="uname" required><br>
     Name:<br>
