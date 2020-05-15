@@ -42,8 +42,12 @@
 
         $username = $_POST["uname"];
         $password = $_POST["pwd"];
-        if(mysqli_num_rows($mysqli->query("SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'")) === 1)
+        $sql = "SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'";
+        $result = $mysqli->query($sql);
+        if(mysqli_num_rows($result) === 1)
         {
+          $row = $result->fetch_assoc();
+          $_SESSION['username'] = $row['name'];
           $_SESSION['playername'] = $username;
           $mysqli->close();
           header("Location: Dashboard.php");

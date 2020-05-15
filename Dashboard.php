@@ -24,6 +24,7 @@
 
       session_start();
       $playername = $_SESSION['playername'];
+      $username = $_SESSION['username'];
 
       if($_GET['delete'] == 'true'){
           $update = "DELETE FROM `CHARACTER` WHERE username = '$playername' and name = '".$_GET['charname']."'";
@@ -39,9 +40,11 @@
           <div><a href="editCharacter.php?edit=false">Create Character</a></div>
           <div class="hoverCursor" onclick="showEdit()">Remove Character</div>
           <div class="logout"><a href="index.php">logout</a></div>
+          <?php echo "<div class='username'>$username</div>"; ?>
         </div>
     </nav>
     <div id="wrapper">
+      <?php echo "<h1>Welcome, $username!</h1>" ?>
         <div class="section">
         <h1>All Characters</h1>
         <?php
@@ -57,11 +60,16 @@ GROUP BY HAS.character_name;
             $results = $mysqli->query($sql);
             while($row = $results->fetch_assoc())
             {
-              echo "<div class='container'><a href=\"character.php\" onClick=\"".'createCookie(\''.$row[character_name].'\')"'."><h2>$row[character_name]</h2><p>$row[class]</p><p>$row[wealth] Gold</p></a><a class='containerButton onedit' href='Dashboard.php?delete=true&charname=$row[character_name]'>Delete Character</a></div><br>";
+              echo "<div class='container'><a href=\"character.php\" onClick=\"".'createCookie(\''.$row[character_name].'\')"'."><h2>$row[character_name]</h2><p>$row[class]</p><p>$row[wealth] Gold</p></a><a class='containerButton onedit' href='Dashboard.php?delete=true&charname=$row[character_name]'>Delete Character</a></div>";
             }
 
             /* close connection */
             $mysqli->close();
+            if($_SESSION['error']=='true')
+            {
+              echo "<br>Unable to create character.<br>You've already made a character with that name!<br>";
+              $_SESSION['error']='false';
+            }
         ?>
     </div>
     </div>

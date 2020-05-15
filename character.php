@@ -28,6 +28,7 @@
         $playername = $_SESSION['playername'];
         $_SESSION['charname'] = $_COOKIE['charname'];
         $charname = $_SESSION['charname'];
+        $username = $_SESSION['username'];
 
         function equip() {
             if(isset($_GET['itemName'])){
@@ -66,6 +67,7 @@
             <div><a href="inventory.php">Edit Inventory</a></div>
             <div><a href="editCharacter.php?edit=true">Edit Character</a></div>
             <div class="logout"><a href="index.php">logout</a></div>
+            <?php echo "<div class='username'>$username</div>"; ?>
         </div>
     </nav>
     <div id="wrapper">

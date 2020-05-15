@@ -29,12 +29,14 @@
         $playername = $_SESSION['playername'];
         $charname = $_SESSION['charname'];
         $_SESSION['edit'] = $_GET['edit'];
+        $username = $_SESSION['username'];
 
     ?>
     <nav>
         <div class="navwrapper">
             <div><a href="Dashboard.php">Dashboard</a></div>
             <div class="logout"><a href="index.php">logout</a></div>
+            <?php echo "<div class='username'>$username</div>"; ?>
         </div>
     </nav>
     <div id="wrapper">

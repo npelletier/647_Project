@@ -29,6 +29,7 @@
 
             $playername = $_SESSION['playername'];
             $charname = $_SESSION['charname'];
+            $username = $_SESSION['username'];
     ?>
     <nav>
         <div class="navwrapper">
@@ -36,6 +37,7 @@
             <div><a href="character.php">View Character</a></div>
             <div><a href="editCharacter.php?edit=true">Edit Character</a></div>
             <div class="logout"><a href="index.php">logout</a></div>
+            <?php echo "<div class='username'>$username</div>"; ?>
         </div>
     </nav>
     <div id="wrapper">

@@ -25,6 +25,16 @@ if ($mysqli->connect_errno) {
 
 
 if(($_SESSION['edit'])=='false'){
+  $sql = "SELECT name FROM `CHARACTER` WHERE username = '$curUser'";
+  $results = $mysqli->query($sql);
+  while($row = $results->fetch_assoc()){
+    if($name == $row['name']){
+      $_SESSION['error'] = 'true';
+      $mysqli->close();
+      header("Location: Dashboard.php");
+      exit();
+    }
+  }
   $sql = "INSERT INTO `CHARACTER`(`username`, `name`, `class`, `alignment`, `xp`, `race`, `description`, `background`, `currenthp`, `maximumhp`, `speed`) VALUES ('$username', '$name', '$class', '$alignment', $xp, '$race', '$description', '$background', $currenthp, $maximumhp, $speed)";
   $results = $mysqli->query($sql);
   if($results){

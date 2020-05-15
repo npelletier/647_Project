@@ -123,6 +123,15 @@ nav > .navwrapper > div:hover{
 
 .logout{
     float: right;
+
+}
+
+.username{
+    float: right;
+}
+
+.username:hover{
+	background-color: #474b4f !important;
 }
 
 .container{
