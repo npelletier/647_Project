@@ -18,6 +18,7 @@
     session_start();
     $_SESSION['playername'] = '';
     $_SESSION['charname'] = '';
+    $_SESSION['username'] = '';
    ?>
   <div class="header-container" style="text-align:center">
     <h1>Welcome to the Dungeons and the Dragons!</h1>
