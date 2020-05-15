@@ -38,7 +38,7 @@
             $results = $mysqli->query($sql);
             while($row = $results->fetch_assoc())
             {
-                echo "<div><a href='character.php'> $row[name] </a></div><br>";
+              echo "<div><a href=\"character.php\" onClick=\"".'createCookie(\''.$row[name].'\')"'."> $row[name] </a></div><br>";
             }
 
             /* close connection */
@@ -46,5 +46,6 @@
         ?>
 
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

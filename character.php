@@ -15,16 +15,18 @@
 </head>
 <body>
     <?php
-         $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
+        $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
 
         /* check connection */
         if ($mysqli->connect_errno) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
             exit();
         }
+        session_start();
+        $playername = $_SESSION['playername'];
+        $_SESSION['charname'] = $_COOKIE['charname'];
+        $charname = $_SESSION['charname'];
 
-        $playername = "tacoTamales";
-        $charname = "MiniPenguin";
     ?>
     <nav>
         <div class="navwrapper">
