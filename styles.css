@@ -84,6 +84,10 @@ h1,h2,h3,h4,h5{
     font-family: 'Roboto', sans-serif;
 }
 
+form{
+	padding: 0;
+}
+
 
 nav{
     background-color: #474b4f;
@@ -194,6 +198,7 @@ input[type=number]{
 
 input[type=submit]{
     background-color: #61892f;
+	font-family: 'Montserrat', sans-serif;
 }
 
 input[type=submit]:hover{
