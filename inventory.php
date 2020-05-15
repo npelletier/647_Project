@@ -44,10 +44,10 @@
             <p>Click items to remove from inventory</p>
             <span class="vBreak"></span>
             <?php
-               $query = "SELECT * FROM `HAS` WHERE character_name ='$charname' and player_name = '$playername'";
+               $query = "SELECT * FROM `HAS`, `ITEM` WHERE character_name ='$charname' and player_name = '$playername' and name = item_name";
                 if($result = $mysqli->query($query)){
                     while($row = $result->fetch_assoc()){
-                        echo "<div class ='container clickable' onclick='addtoRemoveList(this)'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'>".$row['amount']."</p></div>";
+                        echo "<div class ='container clickable' onclick='addtoRemoveList(this)'><h3 class='centered_text'>".$row['item_name']."</h3><p class = 'centered_text amount'> Amount: ".$row['amount']."</p><p class = 'centered_text amount'> Cost: ".$row['cost']."</p><p class = 'centered_text description'> Weight: ".$row['weight']."</p></div>";
                     }
                 }else{
                     echo "Error";
@@ -55,14 +55,46 @@
             ?>
         </div>
         <div class="section">
-            <h1>Avilable Items</h1>
+            <h1>Avilable Common Items</h1>
             <p>Click items to add to inventory</p>
             <span class="vBreak"></span>
             <?php
-               $query = "SELECT * FROM `ITEM`";
+               $query = "SELECT DISTINCT * FROM `ITEM` WHERE ITEM.name NOT IN(SELECT name FROM WEAPON) AND ITEM.name NOT IN(SELECT name FROM ARMOR)";
                 if($result = $mysqli->query($query)){
                     while($row = $result->fetch_assoc()){
-                        echo "<div class ='container clickable' onclick='addtoAddList(this)'><h3 class='centered_text'>".$row['name']."</h3><p class = 'centered_text amount'> ".$row['cost']."</p></div>";
+                        echo "<div class ='container clickable' onclick='addtoAddList(this)'><h3 class='centered_text'>".$row['name']."</h3><p class = 'centered_text amount'> Cost: ".$row['cost']."</p><p class = 'centered_text description'> Weight: ".$row['weight']."</p></div>";
+                    }
+                }else{
+                    echo "Error";
+                }
+            ?>
+
+        </div>
+        <div class="section">
+            <h1>Avilable Weapons</h1>
+            <p>Click items to add to inventory</p>
+            <span class="vBreak"></span>
+            <?php
+               $query = "SELECT * FROM `ITEM`, `WEAPON` WHERE ITEM.name = WEAPON.name";
+                if($result = $mysqli->query($query)){
+                    while($row = $result->fetch_assoc()){
+                        echo "<div class ='container clickable' onclick='addtoAddList(this)'><h3 class='centered_text'>".$row['name']."</h3><p class = 'centered_text amount'> Cost: ".$row['cost']."</p><p class = 'centered_text description'> Weight: ".$row['weight']."</p><p class = 'centered_text description'> Type: ".$row['type']."</p><p class = 'centered_text description'> Damage Amount: ".$row['damage_calculation']."</p><p class = 'centered_text description'> Properties: ".$row['properties']."</p></div>";
+                    }
+                }else{
+                    echo "Error";
+                }
+            ?>
+
+        </div>
+        <div class="section">
+            <h1>Avilable Armors</h1>
+            <p>Click items to add to inventory</p>
+            <span class="vBreak"></span>
+            <?php
+               $query = "SELECT * FROM `ITEM`, `ARMOR` WHERE ITEM.name = ARMOR.name";
+                if($result = $mysqli->query($query)){
+                    while($row = $result->fetch_assoc()){
+                        echo "<div class ='container clickable' onclick='addtoAddList(this)'><h3 class='centered_text'>".$row['name']."</h3><p class = 'centered_text amount'> Cost: ".$row['cost']."</p><p class = 'centered_text description'> Weight: ".$row['weight']."</p><p class = 'centered_text description'> Type: ".$row['type']."</p><p class = 'centered_text description'> Armor Amount: ".$row['armor_calculation']."</p><p class = 'centered_text description'> Properties: ".$row['properties']."</p></div>";
                     }
                 }else{
                     echo "Error";
