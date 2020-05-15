@@ -14,6 +14,11 @@
 <![endif]-->
 </head>
 <body class="centered_text">
+  <?php
+    session_start();
+    $_SESSION['playername'] = '';
+    $_SESSION['charname'] = '';
+   ?>
   <div class="header-container" style="text-align:center">
     <h1>Welcome to the Dungeons and the Dragons!</h1>
   </div>
@@ -39,7 +44,6 @@
         $password = $_POST["pwd"];
         if(mysqli_num_rows($mysqli->query("SELECT * FROM PLAYER WHERE username = '$username' AND password = '$password'")) === 1)
         {
-          session_start();
           $_SESSION['playername'] = $username;
           $mysqli->close();
           header("Location: Dashboard.php");

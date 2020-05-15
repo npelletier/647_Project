@@ -27,8 +27,9 @@
 
     <nav>
         <div class="navwrapper">
-            <div><a href="Dashboard.html">Dashboard</a></div>
-            <div class="logout"><a href="index.html">logout</a></div>
+          <div><a href="Dashboard.php">Dashboard</a></div>
+          <div><a href="#">Create Character</a></div>
+          <div class="logout"><a href="index.php">logout</a></div>
         </div>
     </nav>
     <div id="wrapper">

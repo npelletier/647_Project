@@ -35,7 +35,7 @@
             <div><a href="Dashboard.php">Dashboard</a></div>
             <div><a href="character.php">View Character</a></div>
             <div><a href="#">Edit Character</a></div>
-            <div class="logout"><a href="index.html">logout</a></div>
+            <div class="logout"><a href="index.php">logout</a></div>
         </div>
     </nav>
     <div id="wrapper">
