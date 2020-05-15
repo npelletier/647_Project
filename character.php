@@ -16,7 +16,7 @@
 </head>
 <body>
     <?php
-         $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
+        $mysqli = new mysqli("mysql.eecs.ku.edu", "nathanpelletier", "ooRao3En", "nathanpelletier");
 
         /* check connection */
         if ($mysqli->connect_errno) {
@@ -26,6 +26,7 @@
 
         session_start();
         $playername = $_SESSION['playername'];
+        $_SESSION['charname'] = $_COOKIE['charname'];
         $charname = $_SESSION['charname'];
 
         function equip() {
@@ -115,7 +116,6 @@
                     echo "Error";
                 }
             ?>
-
         </div>
     </div>
     <?php

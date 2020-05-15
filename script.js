@@ -50,6 +50,17 @@ function enforceMin(el){
   }
 }
 
+
+function createCookie(value){
+	console.log("Testing");
+  document.cookie="charname="+value;
+}
+
+function getCookie(name){
+  var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+  return cookieValue
+}
+
 function removeFromList(ele){
     ele.parentNode.removeChild(ele.previousSibling.previousSibling);
     ele.parentNode.removeChild(ele.previousSibling);
