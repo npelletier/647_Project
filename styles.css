@@ -84,6 +84,9 @@ h1,h2,h3,h4,h5{
     font-family: 'Roboto', sans-serif;
 }
 
+form{
+	padding: 0;
+}
 
 nav{
     background-color: #474b4f;
@@ -145,6 +148,15 @@ nav > .navwrapper > div:hover{
     text-align: center;
 }
 
+.clickable:hover{
+    cursor: pointer;
+}
+
+.vBreak{
+    display: block;
+    margin: 10px;
+}
+
 /* specific */
 .amount{
     font-size: 25px;
@@ -153,4 +165,77 @@ nav > .navwrapper > div:hover{
 
 .botMargin{
     margin-bottom: 15px;
+}
+
+.containerButton{
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+}
+
+.remove{
+	display: inline-block;
+	margin-left: 10px;
+}
+
+/* Forms */
+input{
+    font-size: 15px;
+    background-color: #222629;
+    padding: 10px;
+    margin: 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    border: #6b6e70 solid 1px;
+}
+
+input[type=number]{
+    width: 40px;
+    text-align: center;
+}
+
+input[type=submit]{
+    background-color: #61892f;
+	font-family: 'Montserrat', sans-serif;
+}
+
+input[type=submit]:hover{
+    background-color: #86c232;
+}
+
+
+a.button{
+	display: inline-block;
+	font-size: 15px;
+	text-decoration: none;
+    background-color: #222629;
+    padding: 10px;
+    margin: 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    border: #6b6e70 solid 1px;
+}
+
+a.button:hover{
+    background-color: #86c232;
+}
+
+/* Background */
+.background-container {
+  background-image: url(https://clipartart.com/images/dd-logo-clipart.png);
+  position: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+  height: 100vh;
+  width: 100%;
+
+}
+.center-fit {
+  max-width: 100%;
+  max-height: 100vh;
+  margin: auto;
+
 }

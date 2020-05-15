@@ -11,7 +11,7 @@ function addtoRemoveList(ele){
         }
     }
     if(!exist){
-        form.insertAdjacentHTML('beforeend', "<input type='text' name='remove[]' id ='"+nameid+"' value = '"+name+"' readonly required></input><input type='number' name ='removeValue[]' value='1' name ='"+nameid+"Quantity' min='1' max='"+maxValue+"' onkeyup=enforceMinMax(this) required><br>");
+        form.insertAdjacentHTML('beforeend', "<input type='text' name='remove[]' id ='"+nameid+"' value = '"+name+"' readonly required></input><input type='number' name ='removeValue[]' value='1' name ='"+nameid+"Quantity' min='1' max='"+maxValue+"' onkeyup=enforceMinMax(this) required><div class='remove clickable' onclick='removeFromList(this)''>Remove</div><br>");
     }
 }
 
@@ -27,7 +27,7 @@ function addtoAddList(ele){
         }
     }
     if(!exist){
-        form.insertAdjacentHTML('beforeend', "<input type='text' name='add[]' id ='"+nameid+"' value = '"+name+"' readonly required></input><input name='addValue[]' type='number' value='1' name ='"+nameid+"Quantity' min='1' onkeyup=enforceMin(this) required><br>");
+        form.insertAdjacentHTML('beforeend', "<input type='text' name='add[]' id ='"+nameid+"' value = '"+name+"' readonly required></input><input name='addValue[]' type='number' value='1' name ='"+nameid+"Quantity' min='1' onkeyup=enforceMin(this) required><div class='remove clickable' onclick='removeFromList(this)''>Remove</div><br>");
     }
 }
 
@@ -50,6 +50,7 @@ function enforceMin(el){
   }
 }
 
+
 function createCookie(value){
 	console.log("Testing");
   document.cookie="charname="+value;
@@ -58,4 +59,11 @@ function createCookie(value){
 function getCookie(name){
   var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
   return cookieValue
+}
+
+function removeFromList(ele){
+    ele.parentNode.removeChild(ele.previousSibling.previousSibling);
+    ele.parentNode.removeChild(ele.previousSibling);
+    ele.parentNode.removeChild(ele.nextSibling);
+    ele.parentNode.removeChild(ele);
 }
