@@ -54,6 +54,7 @@
                 $currenthp = 100;
                 $maximumhp = 100;
                 $speed = 20;
+                $readOnly = " ";
 
                 $edit_mode = $_GET['edit'];
                 if($edit_mode == 'true'){
@@ -70,12 +71,13 @@
                         $currenthp = $row['currenthp'];
                         $maximumhp = $row['maximumhp'];
                         $speed = $row['speed'];
+                        $readOnly = "readonly";
                     }
                 }
 
                 echo"
-                    <label>User Name</label><br><input required type='text' name='username' value='$username'><br>
-                    <label>Character Name</label><br><input required type='text' name='name' value='$name'><br>
+                    <label>User Name</label><br><input readonly required type='text' name='username' value='$username'><br>
+                    <label>Character Name</label><br><input $readOnly required type='text' name='name' value='$name'><br>
                     <label>Class</label><br><input required type='text' name='class' value='$class'><br>
                     <label>Alignment</label><br><input required type='text' name='alignment' value='$alignment'><br>
                     <label>Experience</label><br><input required type='text' name='xp' value='$xp'><br>
