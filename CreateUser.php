@@ -50,7 +50,7 @@
         {
           if ($password === $pwdconfirm)
           {
-            if($mysqli->query("INSERT INTO PLAYER('username', 'password', 'name') VALUES('$username', '$password', '$name')"));
+            if($mysqli->query("INSERT INTO PLAYER('username', 'password', 'name') VALUES('$username', '$password', '$name')"))
             {
               session_start();
               $_SESSION['playername'] = $username;
