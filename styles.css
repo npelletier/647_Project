@@ -124,7 +124,7 @@ nav > .navwrapper > div:hover{
 }
 
 .container{
-    padding: 10px;
+    padding: 15px;
     margin: 5px;
     background-color: #555555;
     color: #ffffff;
@@ -204,6 +204,10 @@ input[type=submit]:hover{
     background-color: #86c232;
 }
 
+a{
+	color: #ffffff;
+	text-decoration: none;
+}
 
 a.button{
 	display: inline-block;

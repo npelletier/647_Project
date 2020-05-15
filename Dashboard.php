@@ -33,19 +33,28 @@
         </div>
     </nav>
     <div id="wrapper">
+        <div class="section">
         <h1>All Characters</h1>
         <?php
-            $sql = "SELECT name FROM `CHARACTER` WHERE username = '$playername'";
+            $sql = "SELECT character_name, class, SUM(cost*amount/100) AS wealth
+FROM `HAS`, `ITEM`,`CHARACTER`
+WHERE (item_name = 'Copper Piece' OR item_name = 'Gold Piece' OR item_name = 'Silver Piece' OR item_name = 'Electrum Piece' OR item_name = 'Platinum Piece')
+AND HAS.player_name = '$playername'
+AND item_name = ITEM.name
+AND HAS.character_name = `CHARACTER`.name
+AND HAS.player_name = `CHARACTER`.username
+GROUP BY HAS.character_name;
+";
             $results = $mysqli->query($sql);
             while($row = $results->fetch_assoc())
             {
-              echo "<div><a href=\"character.php\" onClick=\"".'createCookie(\''.$row[name].'\')"'."> $row[name] </a></div><br>";
+              echo "<div class='container'><a href=\"character.php\" onClick=\"".'createCookie(\''.$row[character_name].'\')"'."><h2>$row[character_name]</h2><p>$row[class]</p><p>$row[wealth] Gold</p></a></div><br>";
             }
 
             /* close connection */
             $mysqli->close();
         ?>
-
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
