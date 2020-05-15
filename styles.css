@@ -175,6 +175,10 @@ nav > .navwrapper > div:hover{
     margin-bottom: 15px;
 }
 
+.hoverCursor:hover{
+	cursor: pointer;
+}
+
 .containerButton{
 	color: #fff;
 	padding: 5px 10px;
@@ -193,6 +197,10 @@ nav > .navwrapper > div:hover{
 .remove{
 	display: inline-block;
 	margin-left: 10px;
+}
+
+.onedit{
+	display: none;
 }
 
 /* Forms */
