@@ -200,6 +200,22 @@ input[type=submit]:hover{
     background-color: #86c232;
 }
 
+
+a.button{
+    background-color: #61892f;
+	font-size: 15px;
+	text-decoration: none;
+    background-color: #222629;
+    padding: 10px;
+    margin: 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    border: #6b6e70 solid 1px;
+}
+
+a.button:hover{
+    background-color: #86c232;
+
 /* Background */
 .background-container {
   background-image: url(https://clipartart.com/images/dd-logo-clipart.png);
@@ -216,4 +232,5 @@ input[type=submit]:hover{
   max-width: 100%;
   max-height: 100vh;
   margin: auto;
+
 }
