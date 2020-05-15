@@ -202,7 +202,7 @@ input[type=submit]:hover{
 
 
 a.button{
-    background-color: #61892f;
+	display: inline-block;
 	font-size: 15px;
 	text-decoration: none;
     background-color: #222629;

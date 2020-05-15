@@ -13,7 +13,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body class="centered_text">
   <div class="header-container" style="text-align:center">
     <h1>Welcome to the Dungeons and the Dragons!</h1>
   </div>
@@ -52,6 +52,6 @@
     }
       ?>
   </form>
-  <br><a class='button' href="CreateUser.php"> New User </a>
+  <a class='button' href="CreateUser.php"> New User </a>
 </body>
 </html>
