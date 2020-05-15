@@ -67,6 +67,8 @@ color: #474b4f;
 light gray
 color: #6b6e70;
 
+red DD424A
+
 font-family: 'Montserrat', sans-serif;
 font-family: 'Oswald', sans-serif;
 font-family: 'Roboto', sans-serif;
@@ -130,6 +132,7 @@ nav > .navwrapper > div:hover{
     color: #ffffff;
     display: inline-block;
     border-radius: 10px;
+	text-align: center;
 }
 
 .section{
@@ -174,11 +177,19 @@ nav > .navwrapper > div:hover{
 
 .containerButton{
 	color: #fff;
+	padding: 5px 10px;
+	margin-top: 5px;
+	border-radius: 5px;
+	background-color: #6b6e70;
 	text-decoration: none;
-	display: block;
+	font-weight: bold;
+	display: inline-block;
 	text-align: center;
 }
 
+.containerButton:hover{
+	background-color: #DD424A;
+}
 .remove{
 	display: inline-block;
 	margin-left: 10px;

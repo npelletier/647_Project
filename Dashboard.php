@@ -23,6 +23,13 @@
 
       session_start();
       $playername = $_SESSION['playername'];
+
+      if($_GET['delete'] == 'true'){
+          $update = "DELETE FROM `CHARACTER` WHERE username = '$playername' and name = '".$_GET['charname']."'";
+          if(!($update_status = $mysqli->query($update))){
+              echo "Error in updating detabase<br>";
+          }
+      }
   ?>
 
     <nav>
@@ -48,7 +55,7 @@ GROUP BY HAS.character_name;
             $results = $mysqli->query($sql);
             while($row = $results->fetch_assoc())
             {
-              echo "<div class='container'><a href=\"character.php\" onClick=\"".'createCookie(\''.$row[character_name].'\')"'."><h2>$row[character_name]</h2><p>$row[class]</p><p>$row[wealth] Gold</p></a></div><br>";
+              echo "<div class='container'><a href=\"character.php\" onClick=\"".'createCookie(\''.$row[character_name].'\')"'."><h2>$row[character_name]</h2><p>$row[class]</p><p>$row[wealth] Gold</p></a><a class='containerButton' href='Dashboard.php?delete=true&charname=$row[character_name]'>Delete Character</a></div><br>";
             }
 
             /* close connection */
