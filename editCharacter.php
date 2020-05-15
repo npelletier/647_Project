@@ -44,7 +44,7 @@
                 $query = "SELECT * FROM `CHARACTER` WHERE username = '$playername' and name = '$charname'";
 
                 $username = $playername;
-                $name = $charname;
+                $name = "CharName";
                 $class = "random";
                 $alignment = "neutral";
                 $xp = 0;
@@ -74,17 +74,17 @@
                 }
 
                 echo"
-                    <label>User Name</label><br><input type='text' name='username' value='$username'><br>
-                    <label>Character Name</label><br><input type='text' name='name' value='$name'><br>
-                    <label>Class</label><br><input type='text' name='class' value='$class'><br>
-                    <label>Alignment</label><br><input type='text' name='alignment' value='$alignment'><br>
-                    <label>Experience</label><br><input type='text' name='xp' value='$xp'><br>
-                    <label>Race</label><br><input type='text' name='race' value='$race'><br>
+                    <label>User Name</label><br><input required type='text' name='username' value='$username'><br>
+                    <label>Character Name</label><br><input required type='text' name='name' value='$name'><br>
+                    <label>Class</label><br><input required type='text' name='class' value='$class'><br>
+                    <label>Alignment</label><br><input required type='text' name='alignment' value='$alignment'><br>
+                    <label>Experience</label><br><input required type='text' name='xp' value='$xp'><br>
+                    <label>Race</label><br><input required type='text' name='race' value='$race'><br>
                     <label>Description</label><br><input type='text' name='description' value='$description'><br>
-                    <label>Background</label><br><input type='text' name='background' value='$background'><br>
-                    <label>Current HP</label><br><input type='text' name='currenthp' value='$currenthp'><br>
-                    <label>Maximum HP</label><br><input type='text' name='maximumhp' value='$maximumhp'><br>
-                    <label>Speed</label><br><input type='text' name='speed' value='$speed'><br>";
+                    <label>Background</label><br><input required type='text' name='background' value='$background'><br>
+                    <label>Current HP</label><br><input required type='text' name='currenthp' value='$currenthp'><br>
+                    <label>Maximum HP</label><br><input required type='text' name='maximumhp' value='$maximumhp'><br>
+                    <label>Speed</label><br><input required type='text' name='speed' value='$speed'><br>";
 
             ?>
             <input type='submit' value="Submit">
